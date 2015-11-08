@@ -70,7 +70,6 @@ def downloadDictionaries(base, listOfIndexes, tmpDirectory, downloadDir):
             fullpathofsubdir = downloadDir + "/" + subDirnameToExtract
             print "extract to %s" % fullpathofsubdir
             t.extractall(fullpathofsubdir)
-            return
 
 if __name__ == '__main__':
     onCompu = True
