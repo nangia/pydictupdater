@@ -46,7 +46,10 @@ def dlfile(url, dir):
 # b. extract each dictionary (i.e. .tar.gz file into downloadDir)
 # If tmpDirectory or downloadDir are not already existing,
 # they get created
-def downloadDictionaries(base, listOfIndexes, tmpDirectory, downloadDir):
+
+def downloadDictionaries(base, listOfIndexes, tmpDirectory, downloadDir,
+                         maxcount=1):
+    count = 0
     for indexUrl in listOfIndexes:
         fullIndexPath = base + indexUrl
         # download this index
@@ -67,9 +70,13 @@ def downloadDictionaries(base, listOfIndexes, tmpDirectory, downloadDir):
             t = tarfile.open(tmpDirectory + "/" + dictfilename, 'r')
             thedictfilenamelen = len(dictfilename)
             subDirnameToExtract = dictfilename[:thedictfilenamelen - 7]
-            fullpathofsubdir = downloadDir + "/" + subDirnameToExtract
+            fullpathofsubdir = downloadDir + subDirnameToExtract
             print "extract to %s" % fullpathofsubdir
             t.extractall(fullpathofsubdir)
+            count += 1
+            if count == maxcount:
+                return
+
 
 if __name__ == '__main__':
     onCompu = True
@@ -79,4 +86,4 @@ if __name__ == '__main__':
         tmpDir = "." + tmpDir
         dictDir = "." + dictDir
     downloadDictionaries(indexlistBase, listOfIndexes,
-                         tmpDir, dictDir)
+                         tmpDir, dictDir, maxcount=5)
