@@ -1,6 +1,7 @@
 # import urllib2
 import os
 from urllib2 import urlopen, URLError, HTTPError
+import tarfile
 
 indexlistBase = "https://raw.githubusercontent.com/sanskrit-coders/"
 listOfIndexes = [
@@ -13,13 +14,17 @@ listOfIndexes = [
 ]
 
 
+# create the directory if it does not exist already
+def createDirectory(dir):
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+
+
 # download the url into dir
 # if dir does not exist create it
 def dlfile(url, dir):
-    import pdb; pdb.set_trace()
+    createDirectory(dir)
     # Open the url
-    if not os.path.exists(dir):
-        os.makedirs(dir)
     try:
         f = urlopen(url)
         print "downloading " + url
@@ -36,6 +41,11 @@ def dlfile(url, dir):
         print "URL Error:", e.reason, url
 
 
+# Use the listOfIndexes to
+# a. download each index into tmpDirectory
+# b. extract each dictionary (i.e. .tar.gz file into downloadDir)
+# If tmpDirectory or downloadDir are not already existing,
+# they get created
 def downloadDictionaries(base, listOfIndexes, tmpDirectory, downloadDir):
     for indexUrl in listOfIndexes:
         fullIndexPath = base + indexUrl
@@ -47,9 +57,27 @@ def downloadDictionaries(base, listOfIndexes, tmpDirectory, downloadDir):
             dictURL = line[1:linelen-1]
             # dictURL is a URl to a .tar.gz file
             # this needs to be extracted in a subdirectory of downloadsDir
-            print dictURL
+            dictfilename = os.path.basename(dictURL)
+            # print "downloading file=%s, url=%s, to dir=%s" % (
+            #     dictfilename, dictURL,
+            #     tmpDirectory)
+
+            dlfile(dictURL, tmpDirectory)
+            assert(dictfilename[-7:] == ".tar.gz")
+            t = tarfile.open(tmpDirectory + "/" + dictfilename, 'r')
+            thedictfilenamelen = len(dictfilename)
+            subDirnameToExtract = dictfilename[:thedictfilenamelen - 7]
+            fullpathofsubdir = downloadDir + "/" + subDirnameToExtract
+            print "extract to %s" % fullpathofsubdir
+            t.extractall(fullpathofsubdir)
+            return
 
 if __name__ == '__main__':
-    # downloadDictionaries(indexlistBase, listOfIndexes,
-    #                     "./sdcard/Download/dicttars")
-    dlfile('http://www.kathamrita.org/wp-content/uploads/2013/12/divinity.jpg', 'files/files')
+    onCompu = True
+    tmpDir = "/sdcard/Download/dicttars"
+    dictDir = "/sdcard/dictdata/"
+    if onCompu:
+        tmpDir = "." + tmpDir
+        dictDir = "." + dictDir
+    downloadDictionaries(indexlistBase, listOfIndexes,
+                         tmpDir, dictDir)
