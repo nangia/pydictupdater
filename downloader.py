@@ -43,46 +43,59 @@ def dlfile(url, dir, forcedownload=True):
         print "URL Error:", e.reason, url
 
 
-# Use the listOfIndexes to
-# a. download each index into tmpDirectory
-# b. extract each dictionary (i.e. .tar.gz file into downloadDir)
-# If tmpDirectory or downloadDir are not already existing,
-# they get created
+# take an indexURL and return list of .tar.gz listed in it
+def getListOfDownloadFiles(indexURL, verbose=False):
+    returnlist = []
+    if verbose:
+        print "Processing index %s" % indexURL
+    # download this index and go through it line by line
+    response = urlopen(indexURL)
+    for line in response:
+        line = line.rstrip()  # remove line marker
+        linelen = len(line)
+        dictURL = line[1:linelen-1]  # strip away '<' & '>' at begining & end
+        # dictURL is a URl to a .tar.gz file
+        returnlist.append(dictURL)
+    return returnlist
 
-def downloadDictionaries(base, listOfIndexes, tmpDirectory, downloadDir,
-                         maxcount=1, forcedownload=True):
+
+def downloadAndExtractDictionary(dictURL, tmpDirectory, downloadDir,
+                                 forcedownload=False):
+    dictfilename = os.path.basename(dictURL)
+    print "downloading file=%s, to dir=%s" % (
+        dictfilename,
+        tmpDirectory)
+    dlfile(dictURL, tmpDirectory, forcedownload)
+    assert(dictfilename[-7:] == ".tar.gz")
+    t = tarfile.open(tmpDirectory + "/" + dictfilename, 'r')
+    thedictfilenamelen = len(dictfilename)
+    subDirnameToExtract = dictfilename[:thedictfilenamelen - 7]
+    fullpathofsubdir = downloadDir + subDirnameToExtract
+    print "extract to %s" % fullpathofsubdir
+    t.extractall(fullpathofsubdir)
+
+
+def downloadDictionaries(base, listOfIndexes, tgzDownloadDirectory,
+                         dictExtractDir,
+                         maxcount=1, forcedownload=False, verbose=False):
     count = 0
     for indexUrl in listOfIndexes:
         fullIndexPath = base + indexUrl
         # download this index
-        print "============================================"
-        print "Processing index %s" % fullIndexPath
-        response = urlopen(fullIndexPath)
-        for line in response:
-            line = line.rstrip()
-            linelen = len(line)
-            dictURL = line[1:linelen-1]
-            # dictURL is a URl to a .tar.gz file
-            # this needs to be extracted in a subdirectory of downloadsDir
-            dictfilename = os.path.basename(dictURL)
-            print "downloading file=%s, to dir=%s" % (
-                dictfilename,
-                tmpDirectory)
-
-            dlfile(dictURL, tmpDirectory, forcedownload)
-            assert(dictfilename[-7:] == ".tar.gz")
-            t = tarfile.open(tmpDirectory + "/" + dictfilename, 'r')
-            thedictfilenamelen = len(dictfilename)
-            subDirnameToExtract = dictfilename[:thedictfilenamelen - 7]
-            fullpathofsubdir = downloadDir + subDirnameToExtract
-            print "extract to %s" % fullpathofsubdir
-            t.extractall(fullpathofsubdir)
+        if verbose:
+            print "============================================"
+            print "Processing index %s" % fullIndexPath
+        dictlist = getListOfDownloadFiles(fullIndexPath, verbose=True)
+        for adict in dictlist:
+            downloadAndExtractDictionary(adict, tgzDownloadDirectory,
+                                         dictExtractDir, forcedownload)
             count += 1
             if count == -1:
                 continue  # no limit to download
             if count == maxcount:
                 return
-        print "============================================"
+        if verbose:
+            print "============================================"
 
 
 if __name__ == '__main__':
@@ -93,4 +106,5 @@ if __name__ == '__main__':
         tmpDir = "." + tmpDir
         dictDir = "." + dictDir
     downloadDictionaries(indexlistBase, listOfIndexes,
-                         tmpDir, dictDir, maxcount=-1, forcedownload=False)
+                         tmpDir, dictDir, maxcount=-1, forcedownload=False,
+                         verbose=True)
