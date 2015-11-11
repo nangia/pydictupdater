@@ -98,6 +98,19 @@ def downloadDictionaries(base, listOfIndexes, tgzDownloadDirectory,
             print "============================================"
 
 
+def getMasterListToDownload(base, listOfIndexes, verbose=False):
+    masterlist = []
+    for indexUrl in listOfIndexes:
+        fullIndexPath = base + indexUrl
+        # download this index
+        if verbose:
+            print "============================================"
+            print "Processing index %s" % fullIndexPath
+        dictlist = getListOfDownloadFiles(fullIndexPath, verbose=True)
+        masterlist.extend(dictlist)
+        return masterlist
+
+
 if __name__ == '__main__':
     onCompu = True
     tmpDir = "/sdcard/Download/dicttars"
