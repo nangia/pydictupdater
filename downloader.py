@@ -2,6 +2,7 @@
 import os
 from urllib2 import urlopen, URLError, HTTPError
 import tarfile
+import platform
 
 indexlistBase = "https://raw.githubusercontent.com/sanskrit-coders/"
 listOfIndexes = [
@@ -102,7 +103,8 @@ if __name__ == '__main__':
     onCompu = True
     tmpDir = "/sdcard/Download/dicttars"
     dictDir = "/sdcard/dictdata/"
-    if onCompu:
+    onMac = (platform.system() == 'Darwin')
+    if onMac:
         tmpDir = "." + tmpDir
         dictDir = "." + dictDir
     downloadDictionaries(indexlistBase, listOfIndexes,
