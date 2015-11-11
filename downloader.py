@@ -1,4 +1,3 @@
-# import urllib2
 import os
 from urllib2 import urlopen, URLError, HTTPError
 import tarfile
