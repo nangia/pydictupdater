@@ -18,6 +18,8 @@ How to use this
 
 - Clone this repository using git or just download the file [downloader.py](https://raw.githubusercontent.com/nangia/pydictupdater/master/downloader.py). If you don't want all the dictionaries, see the section "What if I don't want Kannada or Pali files" below.
 
+- If you want to run downloader.py on Android you have to transfer downloader.py to your Android. You can use the filepushtoandroid.sh to transfer it via adb. Make sure you fix the path to adb.
+
 - Run "downloader.py". On Android, the .tar.gz dictionary files will get downloaded to /sdcard/Download/dicttars and their expansions will be put in /sdcard/Download/. If you ran this on a Mac, you would get .tar.gz files in ./sdcard/Donwload/dicttars. 
 
 - If you are doing this on Android, you are done, just run GoldenDict and Rescan dictionaries. If you are on Desktop, transfer the files to /sdcard/Download/dicttars and then run Rescan dictionaries from within GoldenDict.
