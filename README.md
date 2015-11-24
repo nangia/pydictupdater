@@ -5,7 +5,7 @@ Why does this App Exist?
 
 [Vishvas Vasuki](https://github.com/vvasuki) ([@vasukeya](https://twitter.com/vasukeya) on Twitter) has compiled a [nice set of dictionaries](https://github.com/sanskrit-coders) that work with StarDict compatible apps for Sanskrit, Kannada, Pali and Hindi. Thus, one could use a StarDict compatible app like [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) which can be used for these dictionaries. The process would be to install GoldenDict and then install and run [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater) and then rescan dictionaries from within GoldenDict App.
 
-However, I have had problems running Sanskrit Dictionary Updater on my phone. Hence, this is a altrnative way to download these dictionaries to your Desktop computer or to Android. 
+However, I have had problems running Sanskrit Dictionary Updater on my phone. Hence, this is a alternative way to download these dictionaries to your Desktop computer or to Android. 
 
 What Platforms Will this App Run on?
 ====================================
@@ -14,9 +14,9 @@ I have tested this on a OS X Yosemite 10.10.5 and on Android 4.4. While this sho
 How to use this
 ===============
 
-- Make sure you have Python 2.7 available on your computer. You can install from [https://www.python.org)(https://www.python.org). If you want to run on Android, you can use [QPython](http://qpython.com). 
+- Make sure you have Python 2.7 available on your computer. You can install from [https://www.python.org](https://www.python.org). If you want to run on Android, you can use [QPython](http://qpython.com). 
 
-- Clone this repository using git or just download the file downloader.py.
+- Clone this repository using git or just download the file [downloader.py](https://raw.githubusercontent.com/nangia/pydictupdater/master/downloader.py).
 
 - Run "downloader.py". On Android, the .tar.gz dictionary files will get downloaded to /sdcard/Download/dicttars and their expansions will be put in /sdcard/Download/. If you ran this on a Mac, you would get .tar.gz files in ./sdcard/Donwload/dicttars. 
 
@@ -27,6 +27,7 @@ What if I don't want Kannada or Pali files
 ==========================================
 Edit downloader.py and command out the index files that you don't want by putting a "#" on that line:
 
+```python
 listOfIndexes = [
     "stardict-sanskrit/master/sa-head/tars/tars.MD",
     "stardict-sanskrit/master/en-head/tars/tars.MD",
@@ -35,3 +36,4 @@ listOfIndexes = [
 #    "stardict-pali/master/en-head/tars/tars.MD",
     "stardict-hindi/master/dev-head/tars/tars.MD",
 ]
+```
