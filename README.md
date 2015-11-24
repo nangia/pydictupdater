@@ -14,11 +14,11 @@ I have tested this on a OS X Yosemite 10.10.5 and on Android 4.4. While this sho
 How to use this
 ===============
 
-- Make sure you have Python 2.7 available on your computer. You can install from [https://www.python.org](https://www.python.org). If you want to run on Android, you can use [QPython](http://qpython.com). 
+- Make sure you have Python available on your computer. If you are working on Mac, you should already have it. Else, you can install from [https://www.python.org](https://www.python.org). If you want to run on Android, you can use [QPython](http://qpython.com). 
 
 - Clone this repository using git or just download the file [downloader.py](https://raw.githubusercontent.com/nangia/pydictupdater/master/downloader.py). If you don't want all the dictionaries, see the section "What if I don't want Kannada or Pali files" below.
 
-- If you want to run downloader.py on Android you have to transfer downloader.py to your Android. You can use the filepushtoandroid.sh to transfer it via adb. Make sure you fix the path to adb.
+- If you want to run downloader.py on Android you have to transfer downloader.py to your Android. You can use the file pushtoandroid.sh to transfer it via [adb](http://developer.android.com/intl/ja/tools/help/adb.html). Make sure you fix the path to adb.
 
 - Run "downloader.py". On Android, the .tar.gz dictionary files will get downloaded to /sdcard/Download/dicttars and their expansions will be put in /sdcard/Download/. If you ran this on a Mac, you would get .tar.gz files in ./sdcard/Donwload/dicttars. 
 
