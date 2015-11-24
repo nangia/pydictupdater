@@ -112,7 +112,6 @@ def getMasterListToDownload(base, listOfIndexes, verbose=False):
 
 
 if __name__ == '__main__':
-    onCompu = True
     tmpDir = "/sdcard/Download/dicttars"
     dictDir = "/sdcard/dictdata/"
     onMac = (platform.system() == 'Darwin')
