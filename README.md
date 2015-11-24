@@ -1,9 +1,9 @@
-Why does this App Exist?
+An alternative for [?
 ==================
 
 [StarDict](http://www.stardict.org) is a cross-platform and international dictionary software. Using StartDict or other apps that work with the StarDict dictionary format, one could use this for a dictionary of various languages.
 
-[Vishvas Vasuki](https://github.com/vvasuki) ([@vasukeya](https://twitter.com/vasukeya) on Twitter) has compiled a [nice set of dictionaries](https://github.com/sanskrit-coders) that work with StarDict compatible apps for Sanskrit, Kannada, Pali and Hindi. Thus, one could use a StarDict compatible app like [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) which can be used for these dictionaries. The process would be to install GoldenDict and then install and run [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater) and then rescan dictionaries from within GoldenDict App.
+[Vishvas Vasuki](https://github.com/vvasuki) ([@vasukeya](https://twitter.com/vasukeya) on Twitter) and others have compiled a [nice set of dictionaries](https://github.com/sanskrit-coders) that work with StarDict compatible apps for Sanskrit, Kannada, Pali and Hindi. Thus, one could use a StarDict compatible app like [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) which can be used for these dictionaries. The process would be to install GoldenDict and then install and run [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater) (again written by Vishvas) and then rescan dictionaries from within GoldenDict App.
 
 However, I have had problems running Sanskrit Dictionary Updater on my phone. Hence, this is a alternative way to download these dictionaries to your Desktop computer or to Android. 
 
