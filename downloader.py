@@ -7,8 +7,8 @@ indexlistBase = "https://raw.githubusercontent.com/sanskrit-coders/"
 listOfIndexes = [
     "stardict-sanskrit/master/sa-head/tars/tars.MD",
     "stardict-sanskrit/master/en-head/tars/tars.MD",
-    # "stardict-kannada/master/en-head/tars/tars.MD",
-    # "stardict-kannada/master/kn-head/tars/tars.MD",
+    "stardict-kannada/master/en-head/tars/tars.MD",
+    "stardict-kannada/master/kn-head/tars/tars.MD",
     "stardict-pali/master/en-head/tars/tars.MD",
     "stardict-hindi/master/dev-head/tars/tars.MD",
 ]
