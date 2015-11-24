@@ -1,4 +1,4 @@
-An alternative for [?
+An alternative for [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater)
 ==================
 
 [StarDict](http://www.stardict.org) is a cross-platform and international dictionary software. Using StartDict or other apps that work with the StarDict dictionary format, one could use this for a dictionary of various languages.
