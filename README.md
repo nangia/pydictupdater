@@ -16,7 +16,7 @@ How to use this
 
 - Make sure you have Python 2.7 available on your computer. You can install from [https://www.python.org](https://www.python.org). If you want to run on Android, you can use [QPython](http://qpython.com). 
 
-- Clone this repository using git or just download the file [downloader.py](https://raw.githubusercontent.com/nangia/pydictupdater/master/downloader.py).
+- Clone this repository using git or just download the file [downloader.py](https://raw.githubusercontent.com/nangia/pydictupdater/master/downloader.py). If you don't want all the dictionaries, see the section "What if I don't want Kannada or Pali files" below.
 
 - Run "downloader.py". On Android, the .tar.gz dictionary files will get downloaded to /sdcard/Download/dicttars and their expansions will be put in /sdcard/Download/. If you ran this on a Mac, you would get .tar.gz files in ./sdcard/Donwload/dicttars. 
 
@@ -25,7 +25,7 @@ How to use this
 
 What if I don't want Kannada or Pali files
 ==========================================
-Edit downloader.py and command out the index files that you don't want by putting a "#" on that line:
+Edit downloader.py and command out the index files that you don't want by putting a "#" on that line and run "downloader.py".
 
 ```python
 listOfIndexes = [
