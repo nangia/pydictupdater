@@ -30,13 +30,10 @@ If you want to run directly on Android, use the following steps:
 Steps for downloading on Mac
 ---
 
-1. You already will have a Python installed on Mac. Type ```python``` on command line to check that. Type quit() to exit from Python.
+1. You already will have a Python installed on Mac. Type `python` on command line to check that. Type `quit()` to exit from Python.
 2. Clone this repository using git or just download the file [downloader.py](https://raw.githubusercontent.com/nangia/pydictupdater/master/downloader.py). If you don't want all the dictionaries, see the section "What if I don't want Kannada or Pali files" below.
-3. Type the following command in a new directory. 
-```
-python downloader.py
-``` 
-4. The .tar.gz dictionary files will get downloaded to ./sdcard/Download/dicttars and their expansions will be put in ./sdcard/Download/.
+3. Type the following command in a new directory. `python downloader.py` 
+4. The .tar.gz dictionary files will get downloaded to `./sdcard/Download/dicttars` and their expansions will be put in `./sdcard/Download/`.
 
 
 Transferring the files to Android
@@ -44,7 +41,7 @@ Transferring the files to Android
 You should have downloaded the files using the steps in previous section.
 
 1. Install [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) or some other StarDict compatible dictionary App.
-2. Transfer the .tar.gz files to from ./sdcard/Download/dicttars (on Mac) to /sdcard/Download/dicttars on Android and all files (and subdirectories) from ./sdcard/Download to /sdcard/Download on Android. You can do this via [adb](http://developer.android.com/intl/ja/tools/help/adb.html) or any other mechanism.
+2. Transfer the .tar.gz files to from `./sdcard/Download/dicttars` (on Mac) to `/sdcard/Download/dicttars` on Android and all files (and subdirectories) from `./sdcard/Download` to `/sdcard/Download` on Android. You can do this via [adb](http://developer.android.com/intl/ja/tools/help/adb.html) or any other mechanism.
 3. Now run GoldenDict and Rescan dictionaries. You should be all set now!
 
 
