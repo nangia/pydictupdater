@@ -23,8 +23,8 @@ If you want to run directly on Android, use the following steps:
 
 1. Install [QPython](https://play.google.com/store/apps/details?id=com.hipipal.qpyplus). 
 2. On a computer, click on [downloader.py](https://raw.githubusercontent.com/nangia/pydictupdater/master/downloader.py) in a browser.
-3. Copy paste the entire program above and paste it at [this site for generating QR code](http://qpython.com/#qrcode) after removing the existing python program there. And click on Create. This will generate a QR code image.
-4. Using QPython, scan the above QR code image and run the program. Be patient! It might take a while to download. It would be prudent to do this while you are connected to WiFi or have a fast internet connection. This will download and install the dictionaries on your Android phone.
+3. Transfer this program to `/sdcard/com.hipipal.qpyplus/scripts` on Android. [You can use pushtoandroid.sh].
+4. Now run QPython and run the program. Be patient! It might take a while to download. It would be prudent to do this while you are connected to WiFi or have a fast internet connection. This will download and install the dictionaries on your Android phone.
 6. Now run GoldenDict and Rescan dictionaries. You are all set now!
 
 Steps for downloading on Mac
