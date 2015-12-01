@@ -3,7 +3,7 @@ An alternative for [Sanskrit Dictionary Updater](https://play.google.com/store/a
 
 [StarDict](http://www.stardict.org) is a cross-platform and international dictionary software. Using StartDict or other apps that work with the StarDict dictionary format, one could use this for a dictionary of various languages.
 
-[Vishvas Vasuki](https://github.com/vvasuki) ([@vasukeya](https://twitter.com/vasukeya) on Twitter) and [others](https://github.com/sanskrit-coders) have compiled a nice set of dictionaries  that work with StarDict compatible apps for [Sanskrit](https://github.com/sanskrit-coders/stardict-sanskrit), [Kannada](https://github.com/sanskrit-coders/stardict-kannada), [Pali](https://github.com/sanskrit-coders/stardict-pali) and [Hindi](https://github.com/sanskrit-coders/stardict-hindi). Thus, one could use a StarDict compatible app like [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) which can be used for these dictionaries. The process would be to install GoldenDict and then install and run [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater) (again written by Vishvas) and then rescan dictionaries from within GoldenDict App.
+[Vishvas Vasuki](https://github.com/vvasuki) ([@vasukeya](https://twitter.com/vasukeya) on Twitter) and [others](https://github.com/sanskrit-coders) have compiled a nice set of dictionaries  that work with StarDict compatible apps for [Sanskrit](https://github.com/sanskrit-coders/stardict-sanskrit), [Kannada](https://github.com/sanskrit-coders/stardict-kannada), [Pali](https://github.com/sanskrit-coders/stardict-pali) and [Hindi](https://github.com/sanskrit-coders/stardict-hindi). Thus, one could use a StarDict compatible app like [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) or [ColorDict](https://play.google.com/store/apps/details?id=com.socialnmobile.colordict) which can be used for these dictionaries. The process would be to install GoldenDict and then install and run [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater) (again written by Vishvas) and then rescan dictionaries from within GoldenDict App.
 
 However, I have had problems running Sanskrit Dictionary Updater on my phone recently. Hence, I just wrote this as an alternative way to download these dictionaries to your Desktop computer or to Android for myself. Note you may not need this and Sanskrit Dictionary Updater might just work for you very well. But, I needed this for myself so wrote this. 
 
@@ -25,7 +25,7 @@ If you want to run directly on Android, use the following steps:
 2. On a computer, click on [downloader.py](https://raw.githubusercontent.com/nangia/pydictupdater/master/downloader.py) in a browser.
 3. Transfer this program to `/sdcard/com.hipipal.qpyplus/scripts` on Android. [You can use pushtoandroid.sh].
 4. Now run QPython and run the program. Be patient! It might take a while to download. It would be prudent to do this while you are connected to WiFi or have a fast internet connection. This will download and install the dictionaries on your Android phone.
-6. Now run GoldenDict and Rescan dictionaries. You are all set now!
+6. Now run GoldenDict or ColorDict and Rescan dictionaries. You are all set now!
 
 Steps for downloading on Mac
 ---
@@ -40,9 +40,9 @@ Transferring the files to Android
 ------
 You should have downloaded the files using the steps in previous section.
 
-1. Install [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) or some other StarDict compatible dictionary App.
+1. Install [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) or [ColorDict](https://play.google.com/store/apps/details?id=com.socialnmobile.colordict) some other StarDict compatible dictionary App.
 2. Transfer the .tar.gz files to from `./sdcard/Download/dicttars` (on Mac) to `/sdcard/Download/dicttars` on Android and all files (and subdirectories) from `./sdcard/Download` to `/sdcard/Download` on Android. You can do this via [adb](http://developer.android.com/intl/ja/tools/help/adb.html) or any other mechanism.
-3. Now run GoldenDict and Rescan dictionaries. You should be all set now!
+3. Now run GoldenDict or ColorDict and Rescan dictionaries. You should be all set now!
 
 
 Transferring files to iOS
