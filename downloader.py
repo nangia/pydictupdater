@@ -10,7 +10,9 @@ listOfIndexes = [
     "stardict-kannada/master/en-head/tars/tars.MD",
     "stardict-kannada/master/kn-head/tars/tars.MD",
     "stardict-pali/master/en-head/tars/tars.MD",
-    "stardict-hindi/master/dev-head/tars/tars.MD",
+    "stardict-pali/master/pali-head/tars/tars.MD",
+    "stardict-pali/master/pali-en-head/tars/tars.MD",
+    "stardict-hindi/master/hi-head/tars/tars.MD",
 ]
 
 
