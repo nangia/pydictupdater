@@ -71,7 +71,8 @@ def downloadAndExtractDictionary(dictURL, tmpDirectory, downloadDir,
     assert(dictfilename[-7:] == ".tar.gz")
     t = tarfile.open(tmpDirectory + "/" + dictfilename, 'r')
     thedictfilenamelen = len(dictfilename)
-    subDirnameToExtract = dictfilename[:thedictfilenamelen - 7]
+    # Handle filenames like: kRdanta-rUpa-mAlA__2016-02-20_23-22-27
+    subDirnameToExtract = dictfilename[:thedictfilenamelen - 7].split("__")[0]
     fullpathofsubdir = downloadDir + subDirnameToExtract
     print "extract to %s" % fullpathofsubdir
     t.extractall(fullpathofsubdir)
