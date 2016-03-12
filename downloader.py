@@ -6,13 +6,16 @@ import platform
 indexlistBase = "https://raw.githubusercontent.com/sanskrit-coders/"
 listOfIndexes = [
     "stardict-sanskrit/master/sa-head/tars/tars.MD",
+    "stardict-sanskrit/master/sa-kAvya/tars/tars.MD",
+    "stardict-sanskrit/master/sa-vyAkaraNa/tars/tars.MD",
     "stardict-sanskrit/master/en-head/tars/tars.MD",
-    "stardict-kannada/master/en-head/tars/tars.MD",
-    "stardict-kannada/master/kn-head/tars/tars.MD",
-    "stardict-pali/master/en-head/tars/tars.MD",
-    "stardict-pali/master/pali-head/tars/tars.MD",
-    "stardict-pali/master/pali-en-head/tars/tars.MD",
     "stardict-hindi/master/hi-head/tars/tars.MD",
+    "stardict-kannada/master/kn-head/tars/tars.MD",
+    "stardict-kannada/master/en-head/tars/tars.MD",
+    "stardict-telugu/master/te-head/tars/tars.MD",
+    "stardict-pali/master/pali-head/tars/tars.MD",
+    "stardict-pali/master/en-head/tars/tars.MD",
+    "stardict-pali/master/pali-en-head/tars/tars.MD",
 ]
 
 
