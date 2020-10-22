@@ -3,7 +3,7 @@ An alternative for [Sanskrit Dictionary Updater](https://play.google.com/store/a
 
 [StarDict](http://www.stardict.org) is a cross-platform and international dictionary software. Using StartDict or other apps that work with the StarDict dictionary format, one could use this for a dictionary of various languages.
 
-[Vishvas Vasuki](https://github.com/vvasuki) and [others](https://github.com/sanskrit-coders) have compiled a nice set of dictionaries  that work with StarDict compatible apps for [Sanskrit](https://github.com/sanskrit-coders/stardict-sanskrit), [Kannada](https://github.com/sanskrit-coders/stardict-kannada), [Pali](https://github.com/sanskrit-coders/stardict-pali) and [Hindi](https://github.com/sanskrit-coders/stardict-hindi). Thus, one could use a StarDict compatible app like [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) or [ColorDict](https://play.google.com/store/apps/details?id=com.socialnmobile.colordict) which can be used for these dictionaries. The process would be to install GoldenDict and then install and run [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater) (again written by Vishvas) and then rescan dictionaries from within GoldenDict App.
+[Vishvas Vasuki](https://github.com/vvasuki) and [others](https://github.com/sanskrit-coders) have compiled a nice set of dictionaries for [Indic Languages](https://github.com/sanskrit-coders/indic-dict). Thus, one could use a StarDict compatible app like [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) or [ColorDict](https://play.google.com/store/apps/details?id=com.socialnmobile.colordict) which can be used for these dictionaries. The process would be to install GoldenDict and then install and run [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater) (again written by Vishvas) and then rescan dictionaries from within GoldenDict App.
 
 However, I have had problems running Sanskrit Dictionary Updater on my phone recently. Hence, I just wrote this as an alternative way to download these dictionaries to your Desktop computer or to Android for myself. Note you may not need this and Sanskrit Dictionary Updater might just work for you very well. But, I needed this for myself so wrote this. 
 
@@ -60,17 +60,26 @@ I have not tested this on Windows or other platforms. But, the program should wo
 
 
 
-What if I don't want Kannada or Pali files
+What if I don't want Malayalam or Pali files
 ==========================================
 Edit downloader.py and command out the index files that you don't want by putting a "#" on that line and run "downloader.py".
 
-```python
+```
+python
 listOfIndexes = [
-    "stardict-sanskrit/master/sa-head/tars/tars.MD",
-    "stardict-sanskrit/master/en-head/tars/tars.MD",
-#    "stardict-kannada/master/en-head/tars/tars.MD",
-#   "stardict-kannada/master/kn-head/tars/tars.MD",
-#    "stardict-pali/master/en-head/tars/tars.MD",
-    "stardict-hindi/master/dev-head/tars/tars.MD",
+    "stardict-sanskrit/gh-pages/sa-head/sa-entries/tars/tars.MD",
+    "stardict-sanskrit/gh-pages/sa-head/en-entries/tars/tars.MD",
+    "stardict-sanskrit/gh-pages/en-head/tars/tars.MD",
+    "stardict-sanskrit-vyAkaraNa/gh-pages/tars/tars.MD",
+    "stardict-sanskrit-kAvya/gh-pages/tars/tars.MD",
+    "stardict-hindi/gh-pages/hi-head/hi-entries/tars/tars.MD",
+    "stardict-hindi/gh-pages/hi-head/en-entries/tars/tars.MD",
+# Bad?
+#    "stardict-hindi/gh-pages/en-head/tars/tars.MD",
+    "stardict-malayalam/gh-pages/ml-head/tars/tars.MD",
+    "stardict-malayalam/gh-pages/en-head/tars/tars.MD",
+    "stardict-pali/gh-pages/pali-en-head/tars/tars.MD",
+    "stardict-pali/gh-pages/pali-head/en-entries/tars/tars.MD",
+    "stardict-pali/gh-pages/en-head/tars/tars.MD",
 ]
 ```
