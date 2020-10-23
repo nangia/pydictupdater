@@ -56,8 +56,8 @@ Transferring the files to Android
 You should have downloaded the files using the steps in previous section.
 
 1. Install [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) or [ColorDict](https://play.google.com/store/apps/details?id=com.socialnmobile.colordict) some other StarDict compatible dictionary App.
-2. Transfer the .tar.gz files to from `./sdcard/Download/dicttars` (on Mac) to `/sdcard/Download/dicttars` on Android and all files (and subdirectories) from `./sdcard/Download` to `/sdcard/Download` on Android. You can do this via [adb](http://developer.android.com/intl/ja/tools/help/adb.html) or any other mechanism.
-3. Now run GoldenDict or ColorDict and Rescan dictionaries. You should be all set now!
+2. Transfer the .tar.gz files to from `./sdcard/Download/dicttars` (on Mac) to `/sdcard/Download/dicttars` on Android and all files (and subdirectories) from `./sdcard/Download` to `/sdcard/Download` on Android. The easiest way to do this is to mount your phone through USB in file transfer mode.
+3. Now run EBDic, GoldenDict or ColorDict and Rescan dictionaries. You should be all set now!
 
 
 Transferring files to iOS  
