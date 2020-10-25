@@ -1,21 +1,24 @@
 import os
-from urllib2 import urlopen, URLError, HTTPError
+from urllib.request import urlopen
+from urllib.error import URLError, HTTPError
 import tarfile
 import platform
-
-indexlistBase = "https://raw.githubusercontent.com/sanskrit-coders/"
+indexlistBase = "https://raw.githubusercontent.com/indic-dict/"
 listOfIndexes = [
-    "stardict-sanskrit/master/sa-head/tars/tars.MD",
-    "stardict-sanskrit/master/sa-kAvya/tars/tars.MD",
-    "stardict-sanskrit/master/sa-vyAkaraNa/tars/tars.MD",
-    "stardict-sanskrit/master/en-head/tars/tars.MD",
-    "stardict-hindi/master/hi-head/tars/tars.MD",
-    "stardict-kannada/master/kn-head/tars/tars.MD",
-    "stardict-kannada/master/en-head/tars/tars.MD",
-    "stardict-telugu/master/te-head/tars/tars.MD",
-    "stardict-pali/master/pali-head/tars/tars.MD",
-    "stardict-pali/master/en-head/tars/tars.MD",
-    "stardict-pali/master/pali-en-head/tars/tars.MD",
+    "stardict-sanskrit/gh-pages/sa-head/sa-entries/tars/tars.MD",
+    "stardict-sanskrit/gh-pages/sa-head/en-entries/tars/tars.MD",
+    "stardict-sanskrit/gh-pages/en-head/tars/tars.MD",
+    "stardict-sanskrit-vyAkaraNa/gh-pages/tars/tars.MD",
+    "stardict-sanskrit-kAvya/gh-pages/tars/tars.MD",
+    "stardict-hindi/gh-pages/hi-head/hi-entries/tars/tars.MD",
+    "stardict-hindi/gh-pages/hi-head/en-entries/tars/tars.MD",
+# Bad?
+#    "stardict-hindi/gh-pages/en-head/tars/tars.MD",
+    "stardict-malayalam/gh-pages/ml-head/tars/tars.MD",
+    "stardict-malayalam/gh-pages/en-head/tars/tars.MD",
+    "stardict-pali/gh-pages/pali-en-head/tars/tars.MD",
+    "stardict-pali/gh-pages/pali-head/en-entries/tars/tars.MD",
+    "stardict-pali/gh-pages/en-head/tars/tars.MD",
 ]
 
 
@@ -36,30 +39,30 @@ def dlfile(url, dir, forcedownload=True):
         # Open our local file for writing
         if not forcedownload:
             if os.path.isfile(localpath):  # check if this file exists
-                print "skipped %s as it already exists" % localpath
+                print("skipped %s as it already exists" % localpath)
                 return
         with open(localpath, "wb") as local_file:
             local_file.write(f.read())
 
     # handle errors
-    except HTTPError, e:
-        print "HTTP Error:", e.code, url
-    except URLError, e:
-        print "URL Error:", e.reason, url
+    except HTTPError as e:
+        print("HTTP Error:", e.code, url)
+    except URLError as e:
+        print("URL Error:", e.reason, url)
 
 
 # take an indexURL and return list of .tar.gz listed in it
 def getListOfDownloadFiles(indexURL, verbose=False):
+    encoding = 'utf-8'
     returnlist = []
     if verbose:
-        print "Processing index %s" % indexURL
+        print("Processing index %s" % indexURL)
     # download this index and go through it line by line
     response = urlopen(indexURL)
     for line in response:
         line = line.rstrip()  # remove line marker
-        linelen = len(line)
-        dictURL = line[1:linelen-1]  # strip away '<' & '>' at begining & end
         # dictURL is a URl to a .tar.gz file
+        dictURL = line.decode(encoding)
         returnlist.append(dictURL)
     return returnlist
 
@@ -67,17 +70,17 @@ def getListOfDownloadFiles(indexURL, verbose=False):
 def downloadAndExtractDictionary(dictURL, tmpDirectory, downloadDir,
                                  forcedownload=False):
     dictfilename = os.path.basename(dictURL)
-    print "downloading file=%s, to dir=%s" % (
+    print("downloading file=%s, to dir=%s" % (
         dictfilename,
-        tmpDirectory)
+        tmpDirectory))
     dlfile(dictURL, tmpDirectory, forcedownload)
-    assert(dictfilename[-7:] == ".tar.gz")
+    assert(dictfilename[-7:] == ".tar.gz",dictfilename)
     t = tarfile.open(tmpDirectory + "/" + dictfilename, 'r')
     thedictfilenamelen = len(dictfilename)
     # Handle filenames like: kRdanta-rUpa-mAlA__2016-02-20_23-22-27
-    subDirnameToExtract = dictfilename[:thedictfilenamelen - 7].split("__")[0]
+    subDirnameToExtract = dictfilename[:-8].split("__")[0]
     fullpathofsubdir = downloadDir + subDirnameToExtract
-    print "extract to %s" % fullpathofsubdir
+    print("extract to %s" % fullpathofsubdir)
     t.extractall(fullpathofsubdir)
 
 
@@ -89,8 +92,8 @@ def downloadDictionaries(base, listOfIndexes, tgzDownloadDirectory,
         fullIndexPath = base + indexUrl
         # download this index
         if verbose:
-            print "============================================"
-            print "Processing index %s" % fullIndexPath
+            print("============================================")
+            print("Processing index %s" % fullIndexPath)
         dictlist = getListOfDownloadFiles(fullIndexPath, verbose=True)
         for adict in dictlist:
             downloadAndExtractDictionary(adict, tgzDownloadDirectory,
@@ -101,7 +104,7 @@ def downloadDictionaries(base, listOfIndexes, tgzDownloadDirectory,
             if count == maxcount:
                 return
         if verbose:
-            print "============================================"
+            print("============================================")
 
 
 def getMasterListToDownload(base, listOfIndexes, verbose=False):
@@ -110,8 +113,8 @@ def getMasterListToDownload(base, listOfIndexes, verbose=False):
         fullIndexPath = base + indexUrl
         # download this index
         if verbose:
-            print "============================================"
-            print "Processing index %s" % fullIndexPath
+            print("============================================")
+            print("Processing index %s" % fullIndexPath)
         dictlist = getListOfDownloadFiles(fullIndexPath, verbose=True)
         masterlist.extend(dictlist)
         return masterlist
@@ -120,7 +123,7 @@ def getMasterListToDownload(base, listOfIndexes, verbose=False):
 if __name__ == '__main__':
     tmpDir = "/sdcard/Download/dicttars"
     dictDir = "/sdcard/dictdata/"
-    onMac = (platform.system() == 'Darwin')
+    onMac = True # (platform.system() == 'Darwin')
     if onMac:
         tmpDir = "." + tmpDir
         dictDir = "." + dictDir
