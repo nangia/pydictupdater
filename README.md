@@ -7,7 +7,7 @@ An alternative for [Sanskrit Dictionary Updater](https://play.google.com/store/a
 
 However, I have had problems running Sanskrit Dictionary Updater on my phone recently. Hence, I just wrote this as an alternative way to download these dictionaries to your Desktop computer or to Android for myself. Note you may not need this and Sanskrit Dictionary Updater might just work for you very well. But, I needed this for myself so wrote this. 
 
-Update (2020/10/22): Due to issues with running [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater) on a Moto G Stylus, this was forked from [the original](https://github.com/sanskrit-coders/pydictupdater) to python3 and used as a backup. It is not in the greatest of shape, and needs some work to be a good general tool - @kmadathil
+**Update (2020/10/22)**: Due to issues with running [Sanskrit Dictionary Updater](https://play.google.com/store/apps/details?id=sanskritcode.sanskritdictionaryupdater) on a Moto G Stylus, this was forked from [the original](https://github.com/sanskrit-coders/pydictupdater) to python3 and used as a backup. It is not in the greatest of shape, and needs some work to be a good general tool - @kmadathil
 
 What Platforms Will this App Run on?
 ====================================
@@ -55,7 +55,7 @@ Transferring the files to Android
 ------
 You should have downloaded the files using the steps in previous section.
 
-1. Install [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) or [ColorDict](https://play.google.com/store/apps/details?id=com.socialnmobile.colordict) some other StarDict compatible dictionary App.
+1. Install [EBDic](https://apkpure.com/ebdic/com.twn.ebdic), [GoldenDict](https://play.google.com/store/apps/details?id=mobi.goldendict.android) or [ColorDict](https://play.google.com/store/apps/details?id=com.socialnmobile.colordict) some other StarDict compatible dictionary App.
 2. Transfer the .tar.gz files to from `./sdcard/Download/dicttars` (on Mac) to `/sdcard/Download/dicttars` on Android and all files (and subdirectories) from `./sdcard/Download` to `/sdcard/Download` on Android. The easiest way to do this is to mount your phone through USB in file transfer mode.
 3. Now run EBDic, GoldenDict or ColorDict and Rescan dictionaries. You should be all set now!
 
